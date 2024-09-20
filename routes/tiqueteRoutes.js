@@ -1,13 +1,12 @@
-import Router from "express"
-const TiqueteRoutes = Router()
+import Router from "express";
+const TiqueteRoutes = Router();
+import { getTiquete, postTiquete, putTiquete, deleteTiquete, getTiqueteById, getTiqueteByOrigen } from '../controllers/tiqueteController.js';
 
-import { getTiquete, postTiquete, putTiquete, deleteTiquete, getTiqueteById } from '../controllers/tiqueteController.js'
-//haz la ruta del put
+TiqueteRoutes.get('/', getTiquete);
+TiqueteRoutes.get('/:id', getTiqueteById);
+TiqueteRoutes.get('/origen/:origen', getTiqueteByOrigen); // Asegúrate de que esta línea esté presente
+TiqueteRoutes.post('/', postTiquete);
+TiqueteRoutes.put('/:id', putTiquete);
+TiqueteRoutes.delete('/:id', deleteTiquete);
 
-TiqueteRoutes.get('/', getTiquete)
-TiqueteRoutes.get('/:id', getTiqueteById)
-TiqueteRoutes.post('/', postTiquete)
-TiqueteRoutes.put('/:id', putTiquete)
-TiqueteRoutes.delete('/:id',deleteTiquete)
-
-export default TiqueteRoutes
+export default TiqueteRoutes;
